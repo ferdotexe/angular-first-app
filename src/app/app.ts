@@ -14,5 +14,10 @@ import { DUMMY_USERS } from './dummy-users';
 export class App {
   users = DUMMY_USERS;
 
-  
+
+  onSelectedUser(id: string){
+  console.log('Selected user with id '+id);
 }
+}
+
+

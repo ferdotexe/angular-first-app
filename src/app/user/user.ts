@@ -1,5 +1,5 @@
-import { Component, Input,  } from '@angular/core';
-
+import { Component, EventEmitter, Input, Output, output } from '@angular/core';
+ 
 
 
 
@@ -15,8 +15,12 @@ import { Component, Input,  } from '@angular/core';
 
 export class User {
 
+  @Input({required: true}) id!:string;
   @Input({required: true}) avatar!: string;
   @Input({required: true}) name!: string;
+  @Output() select =  new EventEmitter<string>();
+
+  
 
   
 
@@ -28,7 +32,7 @@ export class User {
  
 
   onSelectUser() {
-   
+   this.select.emit(this.id);
     
   }
 }
