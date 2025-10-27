@@ -9,6 +9,6 @@ import { Component, Input, input } from '@angular/core';
 })
 export class Task {
 
-  @Input({required: true}) name!: string;
+  @Input() name?: string ;
   
 }
