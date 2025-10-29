@@ -1,11 +1,9 @@
 import { Component, EventEmitter, Input, Output, output } from '@angular/core';
+
+import { User } from './user.model';
  
 
-type UserType = {
-  id: string;
-  avatar: string;
-  name: string
-}
+
 
 
 @Component({
@@ -17,11 +15,10 @@ type UserType = {
   ['./user.css']
 })
 
-export class User {
+export class UserComponent {
 
-  @Input({required:true}) user!: UserType;
-   
-  
+  @Input({required:true}) user!: User;
+  @Input({required:true}) selected!: boolean;
   @Output() select =  new EventEmitter<string>();
 
   
