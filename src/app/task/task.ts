@@ -13,7 +13,7 @@ import { newTaskDate } from './task-unit/taskUnit.model';
 })
 export class Task {
 
-  @Input({required: true}) userId?: string;
+  @Input({required: true}) userId!: string;
   @Input({required: true}) name?: string ;
   isAddingTask = false;
   
@@ -61,11 +61,14 @@ export class Task {
  }
 
  onAddTask(taskData: newTaskDate){
-  this.tasks.push({
+  this.tasks.unshift({
     id: new Date().getTime().toString(),
     userId: this.userId,
-    title: taskData.summary,
+    title: taskData.title,
     summary: taskData.summary,
     dueDate: taskData.date
- }
+ })
+
+ this.isAddingTask = false;
+}
 }
